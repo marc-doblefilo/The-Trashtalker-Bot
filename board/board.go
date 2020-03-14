@@ -1,4 +1,4 @@
-package board
+package main
 
 type Board struct {
 	Name string `json:"name"`

@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"github.com/joho/godotenv"
 
-	"board"
+	"github.com/CurbsideProph3t/The-Trashtalker-Bot/board"
 )
 
 var myClient = &http.Client{Timeout: 10 * time.Second}
@@ -23,8 +23,10 @@ func main() {
 	url := fmt.Sprintf("https://api.trello.com/1/members/me/boards?key=%s&token=%s", API, Secret)
 
 
-	
+	b :=Board{}
+	fmt.Println(b)
 }
+/*
+go get -u https://github.com/CurbsideProph3t/The-Trashtalker-Bot.git
 
-
-https://developers.trello.com/reference#cards-1
+https://developers.trello.com/reference#cards-1*/
