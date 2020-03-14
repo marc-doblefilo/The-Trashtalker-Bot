@@ -1,4 +1,12 @@
-package main
+package board
+
+import (
+	"fmt"
+	"os"
+	"encoding/json"
+	"net/http"
+	"github.com/joho/godotenv"
+)
 
 type Board struct {
 	Name string `json:"name"`
@@ -7,14 +15,15 @@ type Board struct {
 }
 
 
-// get, post, update, delete
- 
 
-board1 := Board{}
-board.1
+func getBoards(boards []Board) []Board {
+	var myClient = &http.Client{}
+		
+	godotenv.Load(".env.dist")
 
-func getBoards(boards []Board){
-	boards := []Board{}
+	Secret := os.Getenv("TrelloSecret")
+	API := os.Getenv("TrelloAPI")
+	url := fmt.Sprintf("https://api.trello.com/1/members/me/boards?key=%s&token=%s", API, Secret)
 
 	r, err := myClient.Get(url)
 	if err != nil {
